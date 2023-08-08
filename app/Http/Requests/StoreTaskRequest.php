@@ -11,7 +11,7 @@ class StoreTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return \Auth::check();
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'created_by'  => 'required|exists:users,id',
+            'assigned_to' => 'required|exists:users,id',
+            'title'       => 'required|string|min:1|max:255',
+            'description' => 'required|string|min:1|max:1000',
+            'progress'    => 'required|string|in:to_do,in_progress,need_review,done',
+            'category_id' => 'required|exists:task_categories,id',
         ];
     }
 }
