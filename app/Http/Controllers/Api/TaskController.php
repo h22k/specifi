@@ -34,7 +34,7 @@ class TaskController extends Controller
     {
         $task = $this->taskService->store($request->validated());
 
-        return ApiResponse::success(compact('task'));
+        return ApiResponse::created(compact('task'));
     }
 
     /**
