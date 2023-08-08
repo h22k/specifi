@@ -3,7 +3,6 @@
 namespace App\Filters\Helper;
 
 use App\Exceptions\FiltersNotImplementedException;
-use App\Filters\BaseFilter;
 use App\Filters\Contracts\IFilterable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
