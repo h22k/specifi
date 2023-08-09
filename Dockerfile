@@ -36,6 +36,7 @@ COPY . .
 # Run necessary commands
 RUN composer install
 
+RUN cp .env.example .env
 RUN php artisan key:generate
 
 # Start the PHP server
