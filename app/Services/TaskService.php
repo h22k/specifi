@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Task;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Throwable;
 
@@ -10,11 +11,11 @@ class TaskService
 {
     /**
      * @param  Request  $request
-     * @return Task[]
+     * @return Builder
      */
-    public function index(Request $request): array
+    public function index(Request $request): Builder
     {
-        return Task::filter($request)->get();
+        return Task::filter($request);
     }
 
     /**

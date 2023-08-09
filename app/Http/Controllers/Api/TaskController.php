@@ -24,7 +24,7 @@ class TaskController extends Controller
     {
         $tasks = $this->taskService->index($request);
 
-        return ApiResponse::success(compact('tasks'));
+        return ApiResponse::paginate($tasks);
     }
 
     /**
